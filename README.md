@@ -12,3 +12,6 @@ Always commit to `dev` branch for approval in `main` branch
 
 **Gatway Page**
 ![Gateway Page](images/gatway_page.png)
+
+
+(c) 2026 T8-Lab.org
