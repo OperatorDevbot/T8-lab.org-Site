@@ -1,0 +1,215 @@
+/* Victor Mono Nerd Font for everything */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Victor Mono Nerd Font', monospace;
+}
+
+/* Body with black background and column layout */
+body {
+  min-height: 100vh;
+  width: 100%;
+  background: #000000;
+  color: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------- HEADER ---------------- */
+.lab-header {
+  text-align: center;
+  padding: 25px 0;
+  position: relative;
+  background: linear-gradient(to bottom, #0c0c0c, #1a1a1a);
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+  box-shadow: 0 0 15px rgba(255,255,255,0.05);
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+.lab-title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  text-shadow: 0 0 6px rgba(255,255,255,0.15);
+}
+
+/* ---------------- MAIN CONTENT ---------------- */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;     
+  flex: 1;                 
+  padding: 20px;
+
+  /* Grid-style background */
+  width: 100%;
+  height: 100%;
+  --color: #1e1e1e;
+  background-color: #0c0c0c;
+  background-image: 
+    linear-gradient(
+      0deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1.2rem;
+  color: #b0b0b0;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Special styling for notice text */
+.notice {
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(20,20,20,0.6);
+  box-shadow: 0 0 15px rgba(255,255,255,0.03);
+  max-width: 700px;
+}
+
+/* ---------------- BEAUTIFUL BUTTON ---------------- */
+.beautiful-button {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(to bottom, #1a1a1a, #0c0c0c);
+  color: #e5e7eb;
+  font-family: 'Victor Mono Nerd Font', monospace;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 28px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255,255,255,0.03);
+  animation: button-shimmer 2s infinite;
+  transition: all 0.3s ease-in-out;
+}
+
+.beautiful-button:hover {
+  background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+  animation: button-particles 1s ease-in-out infinite;
+  transform: translateY(-2px);
+}
+
+.beautiful-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 10px rgba(255,255,255,0.05);
+}
+
+@keyframes button-shimmer {
+  0% { background-position: left top; }
+  100% { background-position: right bottom; }
+}
+
+@keyframes button-particles {
+  0% { background-position: left top; }
+  100% { background-position: right bottom; }
+}
+
+/* ---------------- FOOTER ---------------- */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  position: relative;
+  background: linear-gradient(to top, #0c0c0c, #1a1a1a);
+  border-top: 1px solid rgba(255,255,255,0.02);
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+  backdrop-filter: blur(2px);
+}
+
+/* ---------------- LOADER ---------------- */
+@keyframes loader_5191 { from { opacity: 0; } to { opacity: 1; } }
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0c0c0c;
+  background-image: 
+    linear-gradient(
+      0deg,
+      transparent 24%,
+      #1e1e1e 25%,
+      #1e1e1e 26%,
+      transparent 27%,
+      transparent 74%,
+      #1e1e1e 75%,
+      #1e1e1e 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      #1e1e1e 25%,
+      #1e1e1e 26%,
+      transparent 27%,
+      transparent 74%,
+      #1e1e1e 75%,
+      #1e1e1e 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 12px);
+  grid-template-rows: repeat(3, 12px);
+  gap: 6px;
+}
+
+.square {
+  background: #ddd;
+  width: 12px;
+  height: 12px;
+  animation: loader_5191 450ms ease-in-out infinite alternate; /* Faster animation */
+}
+
+#sq1 { animation-delay: 0ms; }
+#sq2 { animation-delay: 50ms; }
+#sq3 { animation-delay: 100ms; }
+#sq4 { animation-delay: 150ms; }
+#sq5 { animation-delay: 200ms; }
+#sq6 { animation-delay: 250ms; }
+#sq7 { animation-delay: 300ms; }
+#sq8 { animation-delay: 350ms; }
+#sq9 { animation-delay: 400ms; }

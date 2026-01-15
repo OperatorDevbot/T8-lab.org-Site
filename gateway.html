@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gateway</title>
+  <link href="https://www.nerdfonts.com/assets/css/webfont.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* --------- STATUS PANEL (BOTTOM RIGHT, above footer) --------- */
+    .status-panel {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: rgba(20,20,20,0.6);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 12px 16px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.03);
+      z-index: 20;
+      font-size: 0.95rem;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #e5e7eb;
+      margin: 6px 0;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 6px rgba(0,255,0,0.6);
+      flex-shrink: 0;
+    }
+
+    /* Gateway grid styles */
+    .gateway-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px auto;
+    }
+    .gateway-box {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 12px;
+      background: rgba(20,20,20,0.6);
+      box-shadow: 0 0 15px rgba(255,255,255,0.03);
+      color: #b0b0b0;
+      font-size: 1.1rem;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .gateway-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(255,255,255,0.1);
+    }
+    .gateway-box h3 { font-size: 1.3rem; color: #e5e7eb; margin-bottom: 10px; }
+    .gateway-box .online-status {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 15px; height: 15px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 5px rgba(0,255,0,0.5);
+    }
+    .gateway-page-title { text-align: center; font-size: 2rem; color: #e5e7eb; margin-bottom: 20px; }
+    .back-button-container { text-align: center; margin-top: 40px; }
+
+    @media (max-width: 900px) { .gateway-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px) { .gateway-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-grid">
+      <div class="square" id="sq1"></div>
+      <div class="square" id="sq2"></div>
+      <div class="square" id="sq3"></div>
+      <div class="square" id="sq4"></div>
+      <div class="square" id="sq5"></div>
+      <div class="square" id="sq6"></div>
+      <div class="square" id="sq7"></div>
+      <div class="square" id="sq8"></div>
+      <div class="square" id="sq9"></div>
+    </div>
+  </div>
+
+  <!-- Status panel -->
+  <div class="status-panel">
+    <div class="status-item"><span class="status-dot"></span> LAB</div>
+    <div class="status-item"><span class="status-dot"></span> DNS</div>
+    <div class="status-item"><span class="status-dot"></span> SSL</div>
+    <div class="status-item"><span class="status-dot"></span> DDOS</div>
+  </div>
+
+  <!-- Header -->
+  <header class="lab-header">
+    <h1 class="lab-title">T8-Lab</h1>
+  </header>
+
+  <!-- Main -->
+  <main class="container">
+    <h2 class="gateway-page-title">Gateway</h2>
+    <div class="gateway-grid">
+      <div class="gateway-box" onclick="window.location.href='http://zabbix.t8-lab.org/'">
+        <div class="online-status"></div>
+        <h3>Dashboard</h3>
+        <p>Hostname: SNMP-1-HomeLab</p>
+        <p>URL: http://zabbix.t8-lab.org/</p>
+      </div>
+      <div class="gateway-box" onclick="window.location.href='https://proxmox.t8-lab.org'">
+        <div class="online-status"></div>
+        <h3>Proxmox</h3>
+        <p>Hostname: proxmox-1-HomeLab</p>
+        <p>URL: https://proxmox.t8-lab.org</p>
+      </div>
+      <div class="gateway-box" onclick="window.location.href='https://npm.t8-lab.org/'">
+        <div class="online-status"></div>
+        <h3>Nginx</h3>
+        <p>Hostname: DNS-1-HomeLab</p>
+        <p>URL: https://npm.t8-lab.org/</p>
+      </div>
+      <div class="gateway-box" onclick="window.location.href='https://pihole.t8-lab.org/admin/login'">
+        <div class="online-status"></div>
+        <h3>PiHole</h3>
+        <p>Hostname: PiHole-1-HomeLab</p>
+        <p>URL: https://pihole.t8-lab.org/</p>
+      </div>
+      <div class="gateway-box" onclick="window.location.href='https://aruba.t8-lab.org/'">
+        <div class="online-status"></div>
+        <h3>Aruba Switch</h3>
+        <p>Hostname: Switch-2-HomeLab</p>
+        <p>URL: https://aruba.t8-lab.org/</p>
+      </div>
+      <div class="gateway-box" onclick="window.location.href='https://proxy.t8-lab.org/'">
+        <div class="online-status"></div>
+        <h3>Proxy</h3>
+        <p>Hostname: Proxy-1-HomeLab</p>
+        <p>URL: https://proxy.t8-lab.org/</p>
+      </div>
+    </div>
+
+    <div class="back-button-container">
+      <button class="beautiful-button" onclick="goBack()">Back</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <span>© 2026 T8-Lab • Protected by Cloudflare • Website by OperatorDevbot</span>
+  </footer>
+
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      setTimeout(() => { loader.style.display = 'none'; }, 1500);
+    });
+
+    function goBack() {
+      const loader = document.getElementById('loader');
+      loader.style.display = 'flex';
+      setTimeout(() => { window.location.href = 'index.html'; }, 1500);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T8-Lab</title>
+  
+  <!-- Victor Mono Nerd Font -->
+  <link href="https://www.nerdfonts.com/assets/css/webfont.css" rel="stylesheet">
+
+  <!-- Link to CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* --------- STATUS PANEL (BOTTOM RIGHT, above footer) --------- */
+    .status-panel {
+      position: fixed;
+      bottom: 80px; /* above footer */
+      right: 20px;
+      background: rgba(20,20,20,0.6);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 12px 16px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.03);
+      z-index: 20;
+      font-size: 0.95rem;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #e5e7eb;
+      margin: 6px 0;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 6px rgba(0,255,0,0.6);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loader (hidden by default) -->
+  <div class="loader" id="loader" style="display: none;">
+    <div class="loader-grid">
+      <div class="square" id="sq1"></div>
+      <div class="square" id="sq2"></div>
+      <div class="square" id="sq3"></div>
+      <div class="square" id="sq4"></div>
+      <div class="square" id="sq5"></div>
+      <div class="square" id="sq6"></div>
+      <div class="square" id="sq7"></div>
+      <div class="square" id="sq8"></div>
+      <div class="square" id="sq9"></div>
+    </div>
+  </div>
+
+  <!-- STATUS PANEL -->
+  <div class="status-panel">
+    <div class="status-item"><span class="status-dot"></span> LAB</div>
+    <div class="status-item"><span class="status-dot"></span> DNS</div>
+    <div class="status-item"><span class="status-dot"></span> SSL</div>
+    <div class="status-item"><span class="status-dot"></span> DDOS</div>
+  </div>
+
+  <!-- Header at top -->
+  <header class="lab-header">
+    <h1 class="lab-title">T8-Lab</h1>
+  </header>
+
+  <!-- Main content -->
+  <main class="container">
+    <p class="subtitle notice">
+      <strong>Notice to Visitors:</strong><br>
+      Hello, and welcome. This website serves as a gateway to my homelab environment.<br>
+      If you arrived here by chance, you are free to explore, but please be aware that all access is monitored.<br>
+      Unauthorized activity is logged.
+    </p>
+
+    <!-- Gateway button -->
+    <button class="beautiful-button" onclick="goGateway()">Gateway</button>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <span>© 2026 T8-Lab • Protected by Cloudflare • Website by OperatorDevbot</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
