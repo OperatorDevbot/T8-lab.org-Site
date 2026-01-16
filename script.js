@@ -1,5 +1,15 @@
 function goGateway() {
   const loader = document.getElementById('loader');
-  loader.style.display = 'flex'; // show loader immediately
-  window.location.href = 'gateway.html'; // navigate immediately
+  const githubBtn = document.getElementById('githubBtn');
+
+  // Lock UI instantly
+  githubBtn.classList.add('hide-ui');
+  loader.style.display = 'flex';
+
+  // Force browser repaint BEFORE navigation
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      window.location.href = 'gateway.html';
+    });
+  });
 }
