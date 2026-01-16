@@ -14,4 +14,5 @@ Always commit to `dev` branch for approval in `main` branch
 ![Gateway Page](images/gatway_page.png)
 
 **Made with help from: ChatGPT and uiverse.io**
+
 (c) 2026 T8-Lab.org
