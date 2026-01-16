@@ -102,13 +102,46 @@
     </div>
   </div>
 
-  <!-- Status panel -->
-  <div class="status-panel">
-    <div class="status-item"><span class="status-dot"></span> LAB</div>
-    <div class="status-item"><span class="status-dot"></span> DNS</div>
-    <div class="status-item"><span class="status-dot"></span> SSL</div>
-    <div class="status-item"><span class="status-dot"></span> DDOS</div>
+<!-- STATUS PANEL (SYSTEM HEALTH) -->
+<div class="status-panel" data-monitor="internal-health">
+
+  <!-- LAB CORE -->
+  <div class="status-item"
+       data-service="lab-core"
+       data-target-ip="10.0.0.18"
+       data-check="icmp"
+       data-interval="5s">
+    <span class="status-dot"></span> LAB
   </div>
+
+  <!-- DNS / NGINX -->
+  <div class="status-item"
+       data-service="dns"
+       data-target-ip="10.0.0.17"
+       data-check="tcp:53"
+       data-interval="5s">
+    <span class="status-dot"></span> DNS
+  </div>
+
+  <!-- SSL TERMINATION -->
+  <div class="status-item"
+       data-service="ssl"
+       data-target-ip="10.0.0.18"
+       data-check="tls"
+       data-interval="10s">
+    <span class="status-dot"></span> SSL
+  </div>
+
+  <!-- DDOS / EDGE FIREWALL -->
+  <div class="status-item"
+       data-service="ddos"
+       data-target-ip="10.0.0.3"
+       data-check="edge"
+       data-interval="2s">
+    <span class="status-dot"></span> DDOS.
+  </div>
+
+</div>
 
   <!-- Header -->
   <header class="lab-header">
@@ -181,3 +214,4 @@
   </script>
 </body>
 </html>
+
