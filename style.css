@@ -1,11 +1,4 @@
 
-/* Victor Mono Nerd Font for everything */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Victor Mono Nerd Font', monospace;
-}
 
 /* Body with black background and column layout */
 body {
