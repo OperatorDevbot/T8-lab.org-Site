@@ -30,7 +30,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: none;
     }
 
     /* ── CUSTOM CURSOR ── */
@@ -143,29 +142,41 @@
     const cursor = document.getElementById('cursor');
     const trail = document.getElementById('cursor-trail');
 
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-    let trailX = 0, trailY = 0;
+    // Only enable custom cursor on devices with fine pointer (mouse)
+    const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
 
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
+    if (hasFinePointer) {
+      document.body.style.cursor = 'none';
 
-    function animate() {
-      cursorX += (mouseX - cursorX) * 0.15;
-      cursorY += (mouseY - cursorY) * 0.15;
-      trailX += (mouseX - trailX) * 0.08;
-      trailY += (mouseY - trailY) * 0.08;
+      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
+      let trailX = 0, trailY = 0;
 
-      cursor.style.left = cursorX + 'px';
-      cursor.style.top = cursorY + 'px';
-      trail.style.left = trailX + 'px';
-      trail.style.top = trailY + 'px';
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
 
-      requestAnimationFrame(animate);
+      function animate() {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        trailX += (mouseX - trailX) * 0.08;
+        trailY += (mouseY - trailY) * 0.08;
+
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        trail.style.left = trailX + 'px';
+        trail.style.top = trailY + 'px';
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    } else {
+      // Remove cursor elements and restore default on touch devices
+      cursor.remove();
+      trail.remove();
+      document.body.style.cursor = 'default';
     }
-    animate();
 
     fetch('https://api.ipify.org?format=json')
       .then(r => r.json())
