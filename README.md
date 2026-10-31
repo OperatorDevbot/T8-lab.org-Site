@@ -8,7 +8,7 @@ The site is **automatically deployed** to the live web server using **GitHub Act
 Always commit to a branch and wait for approval for a pull request and merge in `main` branch
 
 **Main Page**
-![Main Page](images/T8-Site2.0.png)
+![Main Page](images/T8-Site2.1.png)
 
 **Made with help from: ChatGPT**
 
