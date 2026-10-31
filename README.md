@@ -13,6 +13,6 @@ Always commit to a branch and wait for approval for a pull request and merge in 
 **Gatway Page**
 ![Gateway Page](images/gatway_page.png)
 
-**Made with help from: ChatGPT and Uiverse.io**
+**Made with help from: ChatGPT**
 
 (c) 2026 T8-Lab.org
